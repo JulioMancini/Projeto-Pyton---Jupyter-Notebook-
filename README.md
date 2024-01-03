@@ -95,9 +95,9 @@ exemplo 4 (reverse)
 
 # DICIONÁRIOS 
 
-* Definição de Dicionário: É um objeto que representa a coleção de um ou mais objetos. Cada objeto tem sua chave e seu valor. Assim, para acessar um valor de determinado objeto, basta chamramos sua chave. Os dicionários são iniciados e terminados por chaves { }
+Definição de Dicionário: É um objeto que representa a coleção de um ou mais objetos. Cada objeto tem sua chave e seu valor. Assim, para acessar um valor de determinado objeto, basta chamramos sua chave. Os dicionários são iniciados e terminados por chaves { }
 
-* Criando dicionários
+1. Criando dicionários
 
 ` dict1 = {'chave1': 'valor1', 
          'chave2': 'valor2'}`
@@ -124,7 +124,7 @@ exemplo 4 (reverse)
 `dict7 = {'nomes': ('Caio', 'Rafael'), 
          'idade': (29, 30)}` 
 
-* Acessando valores do dicionário
+2. Acessando valores do dicionário
 
 ![1](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/c2e4b24f-edcf-4d74-840c-f9fb805753ca)
 
@@ -144,9 +144,70 @@ Outros exemplos
 `for chave, valor in dict1.items():
     print(chave, valor)`
 
-* Juntando dicionários
+3. Juntando dicionários
 
 `dict1.update(dict2)`
 
 ![2](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/c1b4aa4e-a474-4e65-bd57-b1fc27613550)
 
+Posso adicionar uma nova chave no dict1
+
+`dict1["NOVA CHAVE"] = 1000`
+
+![1](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/094928ec-7fa7-45f4-8f85-16c753470a9d)
+
+# DATAFRAMES  - CRIANDO
+
+Diferentemente das listas e dicionários, o Dataframe precisa que a gente importe uma biblioteca. Essa biblioteca e o Pandas, ela e muito utilizada para manipulação de dados, criação de tabelas, leitura de CSV, transformação de dados e carregamento, etc. Ou seja, Pandas é uma forte ferramenta de análise e manipulação de dados.
+O pandas está simplesmente embutido dentro da linguagem Pyton. A gente consegue criar sem precisar dar nenhum importe.
+
+1. Importando o Pandas
+
+`import pandas as pd` (as pd é um apelido para chamar o pandas)
+
+2. Criando DataFrames (pandas.tab)
+
+exemplo 1
+`df1 = pd.DataFrame()`
+
+![2](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/801e65be-1308-44b6-b1a7-0e1555178b6b)
+
+exemplo 2
+
+`dict1 = {'identificacao': [1, 2, 3, 4, 5], 
+         'nome': ['Caio', 'Rodrigo', 'Rafael', 'Mariane', 'Nathane']}`
+         
+`df2 = pd.DataFrame(data = dict1)`
+
+![3](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/6c9f2136-9dbe-42d5-a56d-ffdfe16e7fe7)
+
+exemplo 3 (mudando o índice)
+
+`df3 = pd.DataFrame(data = dict1, index = [29, 1, 0, 2222, 88])`
+
+![4](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/1fa4f6e2-fdbc-4d53-a829-57019b8bc93b)
+
+exemplo 4 (com series)
+
+`serie1 = pd.Series([1, 2, 3])`
+
+`serie2 = pd.Series(['a', 'b', 'c'])`
+
+`df4 = pd.DataFrame({'coluna1': serie1, 
+                    'coluna2': serie2})`
+
+![5](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/4d2d3ac5-c757-4cf3-ba9a-efa8489e237b)
+
+exemplo 5 (numpy)
+
+`import numpy as np`
+
+`array1 = np.array([[1, 2, 3], 
+                   ['São Paulo', 'Rio de Janeiro', 'Campinas'], 
+                   ['SP', 'RJ', 'SP']])`
+
+`df5 = pd.DataFrame(data = array1.transpose(), 
+                   index = ['linha1', 'linha2', 'linha3'], 
+                   columns = ['identificacao', 'cidade', 'estado'])`
+
+![6](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/c1868a1d-c676-48f6-917d-f38ab504481b)
