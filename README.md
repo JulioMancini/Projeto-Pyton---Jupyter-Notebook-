@@ -211,3 +211,73 @@ exemplo 5 (numpy)
                    columns = ['identificacao', 'cidade', 'estado'])`
 
 ![6](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/c1868a1d-c676-48f6-917d-f38ab504481b)
+
+exemplo 6 (matrix)
+
+`matriz1 = np.matrix([[1, 2, 3], 
+                     ['São Paulo', 'Rio de Janeiro', 'Campinas'], 
+                     ['SP', 'RJ', 'SP']])`
+
+`df6 = pd.DataFrame(data = matriz1.transpose(), 
+                   index = ['linha1', 'linha2', 'linha3'], 
+                   columns = ['identificacao', 'cidade', 'estado'])`
+
+
+# DATAFRAMES - SELECIONANDO
+
+1. Adicionando uma coluna com valores
+
+exemplo 1
+
+`df3.identificacao = df3.identificacao.astype(str)` (somando o valor da indentificação em mais 5 e fazendo uma nova coluna com o resultado)
+
+![7](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/2dcf7e42-b4a8-4c91-bf53-e356d31d414b)
+
+exemplo 2 
+
+`df3['index'] = 0` Adicionando uma nova coluna com valores 0
+
+![8](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/620d8a97-3fe9-4ef6-ae07-fc95fbdb582e)
+
+exemplo 3 
+
+`df3[['nome', 'index']]` procurando por colunas
+
+![9](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/9e16046b-d8f7-468e-ad26-1eb254f1c2b3)
+
+exemplo 4
+
+`df3[(df3.nome.str.contains('R')) | (df3.identificacao == 5)]` Procurando nome que tenha R
+
+![10](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/82b89318-6f57-4f92-9c6c-ea25d4ed330b)
+
+exemplo 5 (localização pelo nome dos indices ou colunas)
+
+`df3.loc[0]` 
+
+![11](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/a7e5bf5b-ef7c-4d2b-a8b4-8259792f601c)
+
+exemplo 6
+
+`df3.iloc[0]`
+
+![12](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/37de6dec-00c3-48e3-95f2-0f446fb59f75)
+
+exemplo 7 
+
+`df3.iloc[0:2]` procurando por quantidade de linhas selecionadas
+
+![13](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/b99a339e-c2e2-4c7e-b5bc-8ca11a9b956a)
+
+exemplo 8 (retornando todas as linhas de uma coluna)
+
+`df3.loc[:, 'nome']` 
+
+![14](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/cbf3ab13-6391-4195-904a-580c3847dd8b)
+
+exemplo 9 (mudando valores)
+
+`df3.loc[2222, 'nome'] = 'Jeremias'`
+
+![15](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/6978d1fd-6c5f-4e90-b522-25b706dc06af)
+
