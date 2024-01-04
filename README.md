@@ -277,7 +277,34 @@ exemplo 8 (retornando todas as linhas de uma coluna)
 
 exemplo 9 (mudando valores)
 
-`df3.loc[2222, 'nome'] = 'Jeremias'`
+`df3.loc[2222, 'nome'] = 'Jeremias`
 
 ![15](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/6978d1fd-6c5f-4e90-b522-25b706dc06af)
 
+# ALGUNS ATRIBUTOS DO DATAFRAME
+
+exemplo 1 ( dtypes = informa qual são as colunas, tipos e valores)
+
+`df3.dtypes`
+
+![16](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/2271ad41-cc94-42c0-81fe-55ff2a80fda4)
+
+exemplo 2 (mudando colunas para string)
+
+`df3.identificacao = df3.identificacao.astype(str)`
+
+exemplo 3 (lista com todas as colunas)
+
+`df3.columns`
+
+![17](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/0e7c3c7f-db32-4478-962d-65ba13f1fe7a)
+
+exemplo 4 ( Shape = característica do dataframe: quantidade de linhas e colunas)
+
+`df3.shape`
+
+exemplo 5 (valores do dataframe)
+
+`df3.values`
+
+![18](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/4ac7ec74-17de-4ce4-a6f8-ab20c6ab3e2d)
