@@ -308,3 +308,68 @@ exemplo 5 (valores do dataframe)
 `df3.values`
 
 ![18](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/4ac7ec74-17de-4ce4-a6f8-ab20c6ab3e2d)
+
+# Métodeos 
+
+1. combine_first
+
+`df3.teste1.combine_first(df3['identificacao_mais_5'])`
+
+![19](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/7c1cedea-8c96-468c-b2b0-661dab257232)
+
+2. copy
+
+`df1000 = df3.copy()` 
+
+![20](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/8979d7e4-b481-41d5-b957-0d326f844863)
+
+3. count
+
+`df1000.count()`
+
+![21](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/4e9781d8-f4f5-4681-95d5-64c82f53eb5c)
+
+4. drop
+
+`df3.drop(columns = ['index_MODIFICADO')`
+
+![22](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/4c507583-6c98-4863-b0aa-3ad4c2978015)
+
+5. drop_duplicates
+
+´df7 = pd.concat([df1000, df1000])´
+
+![23](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/9bd5ce37-e40a-4d91-87a4-b98026a5becd)
+
+6. dropna
+
+`df8 = df7.copy()`
+`df8.dropna(inplace=True)`
+
+![24](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/1174f400-80da-4b58-b656-f1ab2795bb20)
+
+7. fillna
+
+`df7.fillna('NULO', inplace=True)`
+
+![25](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/f6024f34-6637-44c9-937d-43acda784801)
+
+8. head
+
+`df7.head(2)`
+
+![26](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/cc1d98a5-43e0-4382-8fb2-fb82f3a9a5ed)
+
+9. tail
+
+`df7.tail(2)`
+
+![27](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/7de02554-0a7c-4616-88dd-84d33b4b2568)
+
+10. groupby
+
+`df10 = pd.concat([df1000, df1000])`
+`df10.groupby(['nome']).identificacao_mais_5.sum()`
+
+![28](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/a9e92ee1-ff5c-4a7c-ba9e-1af298470392)
+
