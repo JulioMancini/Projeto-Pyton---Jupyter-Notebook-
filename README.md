@@ -373,3 +373,51 @@ exemplo 5 (valores do dataframe)
 
 ![28](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/a9e92ee1-ff5c-4a7c-ba9e-1af298470392)
 
+11. isin
+
+* Criar um DataFrame de exemplo
+df = pd.DataFrame({'A': [1, 2, 3, 4], 'B': ['foo', 'bar', 'baz', 'qux']})
+
+* Verificar se os valores da coluna 'B' estão em uma lista específica
+filtro = df['B'].isin(['foo', 'baz'])
+
+* Aplicar o filtro ao DataFrame
+resultado = df[filtro]
+
+print(resultado)
+
+![29](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/a61a299d-5baf-492e-861f-2c82bff47786)
+
+12. Operações Matemática
+
+`df3.identificacao_mais_5.min()`
+`df3.identificacao_mais_5.max()`
+`df3.identificacao_mais_5.mean()`
+`df3.identificacao_mais_5.median()`
+`df3.identificacao_mais_5.sum()`
+
+![30](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/78e7e0e2-bdd7-42c9-bc85-ce948fa04af1)
+
+13. notnull
+
+* um DataFrame de exemplo com valores nulos
+
+`dados = {'A': [1, 2, None, 4],
+         'B': [5, None, 7, 8]}`
+
+`df = pd.DataFrame(dados)`
+
+* Verificar se os valores são não nulos
+
+`resultado = pd.notnull(df)
+print(resultado)`
+
+![31](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/0407ce0f-9806-498d-add4-9f865c81cdf6)
+
+14. rename
+
+`df3.rename(columns={'nome': 'Nome'}, inplace=True)`
+
+`df3.rename(index={2222: -1}, inplace=True)`
+
+![32](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/5daa8fb2-08e6-43f3-8910-af0bb145bd2d)
