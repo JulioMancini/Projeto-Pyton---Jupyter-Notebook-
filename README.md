@@ -421,3 +421,50 @@ print(resultado)`
 `df3.rename(index={2222: -1}, inplace=True)`
 
 ![32](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/5daa8fb2-08e6-43f3-8910-af0bb145bd2d)
+
+15. replace
+
+`df3.Nome.replace('Jeremias', 'Mariane', inplace=True)`
+
+![33](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/ecf1dc5e-7a3f-4671-97c1-2b9b3dd7af26)
+
+16. to_clipboard 
+
+`df3.to_clipboard()`
+
+* criei uma nova lista
+
+`lista2 = [
+    ("Alice", 25, "São Paulo"),
+    ("Bob", 30, "Rio de Janeiro"),
+    ("Charlie", 22, "Belo Horizonte"),
+    ("Diana", 35, "Brasília"),
+    ("Eva", 28, "Salvador"),
+    ("Frank", 40, "Fortaleza"),
+    ("Grace", 32, "Curitiba"),
+    ("Hank", 26, "Manaus"),
+    ("Ivy", 29, "Recife"),
+    ("Jack", 33, "Porto Alegre"),
+    ("Kate", 27, "Goiânia"),
+    ("Liam", 31, "Belém"),
+    ("Mia", 24, "Florianópolis"),
+    ("Nathan", 38, "Vitória"),
+    ("Olivia", 36, "Natal"),
+    ("Peter", 23, "Campo Grande"),
+    ("Quinn", 34, "João Pessoa"),
+    ("Ryan", 37, "Teresina"),
+    ("Sophia", 39, "Aracaju"),
+    ("Thomas", 21, "Cuiabá")
+]`
+
+* DataFrame
+
+`b = pd.DataFrame (data = lista2)`
+
+* usando o to_clipboard no Excel
+
+`b.to_clipboard()`
+
+![34](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/61986e8f-6aec-44b0-abbf-f69c361a270b)
+
+
