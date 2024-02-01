@@ -467,4 +467,45 @@ print(resultado)`
 
 ![34](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/61986e8f-6aec-44b0-abbf-f69c361a270b)
 
+# MERGE
+
+* Bibliotecas
+  
+`import pandas as pd`
+
+* Carregamento dos Dados
+  
+dados 1
+
+`acessos = pd.read_excel('compras_e_acessos.xlsx', sheet_name='acessos')`
+
+dados 2
+
+`compras = pd.read_excel('compras_e_acessos.xlsx', sheet_name='compras')`
+
+* SQL JOIN: Usuários que têm acessos E compras, trazendo também as informações de ambas as tabelas.
+
+`inner_join = acessos.merge(compras, how='inner', on='user_id')`
+
+![35](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/e00046f9-9222-4caf-bfc6-3e7acb7b7100)
+
+
+* SQL LEFT JOIN: Usuários que têm acessos, mas também queremos trazer o total de compras, caso tenham feito.
+
+`left_join = acessos.merge(compras, how='left', on='user_id')`
+
+![36](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/8508e10a-e73b-4338-9fd6-0a47c9fb970c)
+
+* SQL RIGHT JOIN: Usuários que têm compras, mas também queremos trazer o total de acessos, caso tenham feito.
+
+`right_join = acessos.merge(compras, how='right', on='user_id')`
+
+![37](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/843bd1f2-2df1-495a-b574-9c63e965bcc9)
+
+* SQL FULL JOIN: Usuários que têm acessos OU compras, trazendo as informações de ambos, caso existam.
+
+`full_join = acessos.merge(compras, how='outer', on='user_id')`
+
+![38](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/ec3f7e6f-4617-4661-8f04-2f6ed8a3b6b4)
+
 
