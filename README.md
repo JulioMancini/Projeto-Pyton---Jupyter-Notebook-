@@ -508,4 +508,35 @@ dados 2
 
 ![38](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/ec3f7e6f-4617-4661-8f04-2f6ed8a3b6b4)
 
+# MERGE SEM INTERSECÇÃO
+
+`SQL LEFT JOIN: Usuários que têm acessos, mas que não tenham compras`
+
+![39](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/9b0ebdc1-bddf-46d0-a2ac-b29977207711)
+
+`left_join = left_join[left_join._merge == 'left_only']`
+
+![40](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/b470b6e1-a048-46bf-baea-680fc1e2d551)
+
+* SQL RIGHT JOIN: Usuários que têm compras, mas que não tenham acessos.
+
+`right_join = acessos.merge(compras, how='right', on='user_id', indicator=True)`
+
+![41](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/1fcdbb2e-5249-4ec4-a0d1-c41d2574bea1)
+
+`ight_join = right_join[right_join._merge == 'right_only']`
+
+![42](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/b73c4699-9f72-466f-9ed0-040e4d9615ba)
+
+* SQL FULL JOIN: Usuários que têm acessos OU compras, mas que não tenham os dois ao mesmo tempo
+
+`full_join = acessos.merge(compras, how='outer', on='user_id', indicator=True)`
+
+![43](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/fa6c85bc-63f4-4061-a7f8-b586fb407f6d)
+
+`full_join = full_join[full_join._merge != 'both']`
+
+![44](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/4ea578e6-3da3-4680-8c8d-c4d629079526)
+
+
 
