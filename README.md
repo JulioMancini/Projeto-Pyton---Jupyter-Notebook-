@@ -538,5 +538,25 @@ dados 2
 
 ![44](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/4ea578e6-3da3-4680-8c8d-c4d629079526)
 
+#  CONCATENANDO DATAFRAMES COM CONTCAT
 
+* Criando Dataframes para testes
+
+`df_1 = pd.DataFrame({"nome": ["Caio", "Rodrigo", "Evandro", "Rafael"],
+                     "idade": [28, 45, 27, 16]})`
+
+`df_2 = pd.DataFrame({"nome": ["Caio", "Mariane", "Maria"],
+                     "idade": [28, 29, 59]})`
+                     
+* CONCAT simulando SQL UNION ALL
+
+`df = pd.concat([df_1, df_2], ignore_index=True)` (ou usar ignore_index=True dentro do CONCAT)
+
+![45](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/288c2c1a-7574-4032-9b93-f0cdf9392216)
+
+* CONCAT simulando SQL UNION
+
+`DF = pd.concat([df_1, df_2]).drop_duplicates().reset_index(drop=True)`
+
+![46](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/c05c0c76-b71b-40bc-99ca-98e12066c77b)
 
