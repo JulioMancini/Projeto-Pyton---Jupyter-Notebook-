@@ -560,3 +560,47 @@ dados 2
 
 ![46](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/c05c0c76-b71b-40bc-99ca-98e12066c77b)
 
+# NUMPY+WHERE
+
+* datafrafe de teste
+
+```pyton
+df = pd.DataFrame({'user_id': [1,2,3,4,5,6,7,8,9,10,11], 
+                   'acessos_app': [9, 34, None, None, 727, None, 1, 22, None, None, None], 
+                   'acessos_web': [None, 9834, 1, 19, 99, 102, None, None, 21, 87, None]})
+```
+                   
+```pyton
+df['tem_app'] = np.where(df.acessos_app > 0, 
+                         True, 
+                         False)
+```
+
+```
+df['tem_web'] = np.where(df.acessos_web > 0, 
+                         True, 
+                         False)
+```
+
+```
+df['app_e_web'] = np.where((df.tem_app == True) & (df.tem_web == True), 
+                           True, 
+                           False)
+```
+
+# PANDAS+APPLY
+
+* datafrafe de teste
+  
+```
+df = pd.DataFrame({'product_id': [1,2,3,4,5,6,7,8,9,10], 
+                   'name': ['Camiseta', 'Geladeira', 'Calça', 'Fogão', 'Enciclopédia', 'Bíblia', 
+                            'Perfume', 'Meia', 'Microondas', 'TV']})
+```
+
+```
+ df['categoria'] = df['name'].apply(lambda x: 'Eledroméstico' if x in ['Geladeira', 'Fogão', 'Microondas', 'TV']
+                                   else ('Vestuário' if x in ['Camiseta', 'Calça', 'Meia'] 
+                                        else ('Livro' if x in ['Enciclopédia', 'Bíblia'] 
+                                              else 'Outros')))
+                                              ```
