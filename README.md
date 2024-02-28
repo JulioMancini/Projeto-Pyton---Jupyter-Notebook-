@@ -603,4 +603,26 @@ df = pd.DataFrame({'product_id': [1,2,3,4,5,6,7,8,9,10],
                                    else ('Vestuário' if x in ['Camiseta', 'Calça', 'Meia'] 
                                         else ('Livro' if x in ['Enciclopédia', 'Bíblia'] 
                                               else 'Outros')))
-                                              ```
+```
+
+# CARREGAMENTO DE DADOS
+
+`df_categories = pd.read_csv("C:/Users/julia/Desktop/Julio/Formacao Engenharia de Dados Domine Big Data/PYTHON/CSV/categories.csv")`
+
+`df_categories = pd.read_csv("C:/Users/julia/Desktop/Julio/Formacao Engenharia de Dados Domine Big Data/PYTHON/CSV/products.csv")`
+
+* Combinando informações dos dataframes com linguagem SQL
+
+`query = """
+
+    SELECT 
+        p.id as product_id,
+        p.name as product_name,
+        p.price,
+        c.name as category_name
+    FROM products p
+    JOIN categories c on c.id = p.category_id
+    
+    """
+`
+    `resultado = sqldf(query)`
