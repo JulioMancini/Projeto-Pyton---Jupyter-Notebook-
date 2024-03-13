@@ -1,5 +1,5 @@
 # Pyton-jupyter-notebook
-Projeto de aprendizado Pyton do basico ao avançado (em andamento)
+Projeto de aprendizado Pyton para Engenheiro de Dados
 
 
 # LISTAS
@@ -156,7 +156,7 @@ Posso adicionar uma nova chave no dict1
 
 ![1](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/094928ec-7fa7-45f4-8f85-16c753470a9d)
 
-# DATAFRAMES  - CRIANDO
+### DATAFRAMES  - CRIANDO
 
 Diferentemente das listas e dicionários, o Dataframe precisa que a gente importe uma biblioteca. Essa biblioteca e o Pandas, ela e muito utilizada para manipulação de dados, criação de tabelas, leitura de CSV, transformação de dados e carregamento, etc. Ou seja, Pandas é uma forte ferramenta de análise e manipulação de dados.
 O pandas está simplesmente embutido dentro da linguagem Pyton. A gente consegue criar sem precisar dar nenhum importe.
@@ -223,7 +223,7 @@ exemplo 6 (matrix)
                    columns = ['identificacao', 'cidade', 'estado'])`
 
 
-# DATAFRAMES - SELECIONANDO
+### DATAFRAMES - SELECIONANDO
 
 1. Adicionando uma coluna com valores
 
@@ -281,7 +281,7 @@ exemplo 9 (mudando valores)
 
 ![15](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/6978d1fd-6c5f-4e90-b522-25b706dc06af)
 
-# ALGUNS ATRIBUTOS DO DATAFRAME
+### ALGUNS ATRIBUTOS DO DATAFRAME
 
 exemplo 1 ( dtypes = informa qual são as colunas, tipos e valores)
 
@@ -309,7 +309,7 @@ exemplo 5 (valores do dataframe)
 
 ![18](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/4ac7ec74-17de-4ce4-a6f8-ab20c6ab3e2d)
 
-# Métodeos 
+### Métodeos 
 
 1. combine_first
 
@@ -467,7 +467,7 @@ print(resultado)`
 
 ![34](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/61986e8f-6aec-44b0-abbf-f69c361a270b)
 
-# MERGE
+### MERGE
 
 * Bibliotecas
   
@@ -508,7 +508,7 @@ dados 2
 
 ![38](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/ec3f7e6f-4617-4661-8f04-2f6ed8a3b6b4)
 
-# MERGE SEM INTERSECÇÃO
+### MERGE SEM INTERSECÇÃO
 
 `SQL LEFT JOIN: Usuários que têm acessos, mas que não tenham compras`
 
@@ -538,7 +538,7 @@ dados 2
 
 ![44](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/4ea578e6-3da3-4680-8c8d-c4d629079526)
 
-#  CONCATENANDO DATAFRAMES COM CONTCAT
+###  CONCATENANDO DATAFRAMES COM CONTCAT
 
 * Criando Dataframes para testes
 
@@ -560,7 +560,7 @@ dados 2
 
 ![46](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/c05c0c76-b71b-40bc-99ca-98e12066c77b)
 
-# NUMPY+WHERE
+### NUMPY+WHERE
 
 * datafrafe de teste
 
@@ -588,7 +588,7 @@ df['app_e_web'] = np.where((df.tem_app == True) & (df.tem_web == True),
                            False)
 ```
 
-# PANDAS+APPLY
+### PANDAS+APPLY
 
 * datafrafe de teste
   
@@ -605,7 +605,7 @@ df = pd.DataFrame({'product_id': [1,2,3,4,5,6,7,8,9,10],
                                               else 'Outros')))
 ```
 
-# CARREGAMENTO DE DADOS
+### CARREGAMENTO DE DADOS
 
 `df_categories = pd.read_csv("C:/Users/julia/Desktop/Julio/Formacao Engenharia de Dados Domine Big Data/PYTHON/CSV/categories.csv")`
 
@@ -626,3 +626,107 @@ df = pd.DataFrame({'product_id': [1,2,3,4,5,6,7,8,9,10],
     """
 `
     `resultado = sqldf(query)`
+
+# ETL DE ARQUIVOS
+
+* Iremos ultilizar o Google Bigquery para realizar o processo de ETL dos dados
+* Credenciais do Google Bigquery
+
+1. Ir ao IAM administradores/contas e serviçoes.
+2. Nomear a conta e continuar.
+3. Conta de serviço de acesso:
+
+![b1](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/5c49cad4-12a7-4c86-9e8b-780a730176f1)
+
+4. Para baixar as credenciais: Ações/Gerenciar Chaves
+5. Adicionar Chave/JASON/criar e salvar na maquina
+
+![b2](https://github.com/JulioMancini/Projeto-Pyton---Jupyter-Notebook-/assets/145502330/93ac3f1b-f422-4aa6-b540-552101db1528)
+
+* vontando para o Jupyter Notebook
+
+`import pandas as pd`
+
+`from IPython.display import Image`
+
+`from google.oauth2 import service_account`
+
+### Extração dos dados
+
+`contratos = pd.read_csv('tabela_contratos.csv')`
+
+`datas = pd.read_csv('tabela_datas.csv')`
+
+`empresas = pd.read_csv('tabela_empresas.csv')`
+
+### Trnasformação dos Dados
+
+`contratos_mod = contratos.merge(empresas, 
+                                left_on='fk_empresa_contratada', 
+                                right_on='id_empresa', 
+                                how='left')`
+
+
+`contratos_mod.drop(columns=['id_empresa', 'fk_empresa_contratada'], inplace=True)`
+
+
+`contratos_final = contratos_mod.merge(datas, 
+                                left_on='inicio_vigencia', 
+                                right_on='id_data', 
+                                how='left')`
+                                
+`contratos_final.drop(columns=['inicio_vigencia', 'id_data'], inplace=True)`
+
+
+`contratos_final.rename(columns={'data': 'data_inicio_vigencia'}, inplace=True)`
+
+
+`contratos_final_agora_vai = contratos_final.merge(datas, 
+                                                  left_on='termino_vigencia', 
+                                                  right_on='id_data', 
+                                                  how='left')`
+
+`contratos_final_agora_vai.drop(columns=['termino_vigencia', 'id_data'], inplace=True)`
+
+`contratos_final_agora_vai.rename(columns={'data': 'data_termino_vigencia'}, inplace=True)`
+
+`contratos_final_agora_vai.data_inicio_vigencia = pd.to_datetime(contratos_final_agora_vai.data_inicio_vigencia, 
+                                                                format='%d/%m/%Y').dt.date`
+
+                                                                
+ `for i in contratos_final_agora_vai.data_termino_vigencia:
+    print(i)
+    print(pd.to_datetime(i))`
+
+
+`contratos_final_agora_vai.data_termino_vigencia = contratos_final_agora_vai.data_termino_vigencia.str.replace('31/09/2017', '30/09/2017')`
+
+`contratos_final_agora_vai.data_termino_vigencia = pd.to_datetime(contratos_final_agora_vai.data_termino_vigencia, 
+                                                                format='%d/%m/%Y').dt.date`
+
+`contratos_final_agora_vai['tempo_contrato'] = (contratos_final_agora_vai.data_termino_vigencia - \
+contratos_final_agora_vai.data_inicio_vigencia).dt.days`
+
+`contratos_final_agora_vai[contratos_final_agora_vai.nome_contrato == '004/16']`
+
+`contratos_final_agora_vai = contratos_final_agora_vai[contratos_final_agora_vai.tempo_contrato > 0]`
+
+`contratos_final_agora_vai.reset_index(drop=True, inplace=True)`
+
+### Carregamento dos Dados
+
+```Pyton
+credentials = service_account.Credentials.from_service_account_file(filename='GBQ.json', 
+                                                                    scopes=["https://www.googleapis.com/auth/cloud-platform"])
+```
+
+
+
+```pyton
+contratos_final_agora_vai.to_gbq(credentials=credentials, 
+                                 destination_table='curso_etl.etl_csv', 
+                                 if_exists='replace', 
+                                 table_schema=[{'name': 'data_inicio_vigencia', 'type': 'DATE'},
+                                               {'name': 'data_termino_vigencia', 'type': 'DATE'}])
+ ```                                                                    
+                                                                
